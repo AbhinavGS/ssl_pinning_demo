@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     };
     try {
       var response = await dio.get('https://reqres.in/api/users/1');
-      print(response.data);
+      print(response.data["data"]);
     } catch (error) {
       if (error is DioError) {
         print(error.toString());
@@ -55,6 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
         print('Unexpected Error');
       }
     }
+  }
+
+  @override
+  void initState() {
+    fetchData();
+    super.initState();
   }
 
   @override
